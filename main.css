@@ -7,15 +7,6 @@
   font-family: sans-serif;
 }
 
-img {
-  opacity: .2;
-  width: 100%;
-  position: absolute;
-  top: -3px;
-  left: 1px;
-  transform: scale(1.04);
-}
-
 body {
   background-color: #252528;
   color: #bfbfbf;
@@ -43,7 +34,8 @@ h2 {
 }
 
 main {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
 }
 
@@ -52,8 +44,8 @@ main {
   border: 1px solid #5d5d5d;
   background: #1d1d1d;
   border-radius: 2px;
-  height: 25em;
-  width: 25em;
+  min-height: 90vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
