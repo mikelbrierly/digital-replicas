@@ -1,4 +1,8 @@
 
+:root {
+  --trenchSpeed: 1s;
+}
+
 .targeting-content {
   /* background-image: url(https://i.imgur.com/zPknEMf.jpg);
   background-size: 1357px;
@@ -75,61 +79,42 @@
   border: .6em solid #B8AB35;
   border-top: none;
   bottom: -5%;
-  width: 72.5%;
-  height: 110%;
   left: calc(50% - 36.5%);
-}
-
-.perspective .wallfloor1 {
-  bottom: 0;
-  height: 100%;
-  border-bottom: none;
+  transform: translate(27.3em, -24.1em);
+  height: 2.4%;
+  width: 0.4%;
+  animation: floorAnimationLarge var(--trenchSpeed) cubic-bezier(0.61, 0.1, 1, 0.35) infinite;
 }
 
 .perspective .wallfloor2 {
-  bottom: 9%;
-  height: 80%;
-  width: 40%;
-  left: calc(50% - 20%);
+  animation-delay: calc((var(--trenchSpeed) / 5) * 1);
 }
 
 .perspective .wallfloor3 {
-  bottom: 28%;
-  height: 42%;
-  width: 21%;
-  left: calc(50% - 10.5%);
+  animation-delay: calc((var(--trenchSpeed) / 5) * 2);
 }
 
 .perspective .wallfloor4 {
-  bottom: 38%;
-  height: 22%;
-  width: 11%;
-  left: calc(50% - 5.5%);
+  animation-delay: calc((var(--trenchSpeed) / 5) * 3);
 }
 
 .perspective .wallfloor5 {
-  bottom: 44%;
-  height: 10%;
-  width: 5%;
-  left: calc(50% - 2.5%);
+  animation-delay: calc((var(--trenchSpeed) / 5) * 4);
 }
 
 .perspective .wallfloor6 {
-  bottom: 47%;
-  height: 5%;
-  width: 3%;
-  left: calc(50% - 1.5%);
+  animation-delay: var(--trenchSpeed);
 }
 
 .red-reticle {
-  top: 0;
   position: absolute;
   height: 110%;
-  width: 80%;
-  left: calc(50% - 40%);
+  width: 106%;
   border-left: 1.5em solid #D12122;
   border-right: 1.5em solid #D12122;
   filter: blur(.3em);
+  transform: translate(-3%, -4%);
+  animation: closingReticle 10s 1.8s linear;
 }
 
 .numbers {
@@ -155,11 +140,56 @@
   margin-top: 2.4em;
 }
 
-@media screen and (min-width: 730px) {
+@keyframes floorAnimation {
+  0% {
+    transform: translate(27em, -23.5em);
+    height: 4.5%;
+    width: 2.6%;
+  }
+
+  100% {
+    transform: translate(-11em, 21.5em);
+    width: 102%;
+    height: 203%;
+  }
+}
+
+@keyframes floorAnimationLarge {
+  0% {
+    transform: translate(26em, -23.5em);
+    height: 2.5%;
+    width: 2.6%;
+  }
+
+  100% {
+    transform: translate(-11em, 21.5em);
+    width: 102%;
+    height: 203%;
+  }
+}
+
+@keyframes closingReticle {
+  0% {
+    width: 106%;
+    transform: translate(-3%, -4%);
+  }
+
+  100% {
+    width: 1%;
+    transform: translate(36.7em, -2em);
+  }
+}
+
+@media screen and (min-width: 750px) {
   .targeting-content {
     font-size: 6.5px;
     filter: blur(.4px);
   }
+
+  .perspective div {
+    animation: floorAnimation var(--trenchSpeed) cubic-bezier(0.61, 0.1, 1, 0.35) infinite;
+  }
+
 }
 
 

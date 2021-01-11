@@ -40,4 +40,8 @@ function myLoop() {         //  create a loop function
   })
 }
 
+setTimeout(() => {
+  document.querySelector('.perspective .wallfloor2').classList.add('animating');
+}, 3000)
+
 myLoop(); 
